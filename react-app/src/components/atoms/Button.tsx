@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Button as MuiButton } from "@mui/material";
+
 interface ButtonProps {
   text: string;
   buttonHandler: (e: React.FormEvent) => void;
@@ -7,7 +9,7 @@ interface ButtonProps {
 class Button extends Component<ButtonProps> {
   render() {
     const { text, buttonHandler } = this.props;
-    return <button onClick={buttonHandler}>{text}</button>;
+    return <MuiButton onClick={buttonHandler}>{text}</MuiButton>;
   }
 }
 
