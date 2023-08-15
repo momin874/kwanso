@@ -4,12 +4,10 @@ import Button from "../atoms/Button";
 import InputField from "../atoms/InputField";
 
 interface FormProps {
-  onSubmit: (id: number, inputValue: string) => void;
-  counter: number;
+  onSubmit: (inputValue: string) => void;
 }
 
 interface FormState {
-  id: number;
   inputValue: string;
 }
 
@@ -18,17 +16,13 @@ export class CreateTaskForm extends Component<FormProps, FormState> {
     super(props);
 
     this.state = {
-      id: 0,
       inputValue: "",
     };
   }
   handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    this.setState({
-      id: this.props.counter,
-    });
-    this.props.onSubmit(this.state.id, this.state.inputValue);
+    this.props.onSubmit(this.state.inputValue);
     this.setState({ inputValue: "" });
   };
   handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {

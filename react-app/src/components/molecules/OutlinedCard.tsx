@@ -1,26 +1,29 @@
 import React from "react";
 import Card from "@mui/material/Card";
-import OutlinedCardContent from "../atoms/CardContent";
+import CardContent from "../atoms/CardContent";
 interface OutlinedCardProps {
   taskId: number;
   taskName: string;
   showCheckBox: boolean;
-  handleCheckBoxChange?: (id: number) => void;
+  addSelectedTask?: (id: number) => void;
+  removeSelectedTask?: (id: number) => void;
 }
 
 const OutlinedCard: React.FC<OutlinedCardProps> = ({
   taskId,
   taskName,
   showCheckBox,
-  handleCheckBoxChange,
+  addSelectedTask,
+  removeSelectedTask,
 }) => {
   return (
     <Card variant="outlined" key={taskId}>
-      <OutlinedCardContent
+      <CardContent
         name={taskName}
         id={taskId}
         showCheckbox={showCheckBox}
-        handleCheckboxChange={handleCheckBoxChange}
+        addSelectedTask={addSelectedTask}
+        removeSelectedTask={removeSelectedTask}
       />
     </Card>
   );
